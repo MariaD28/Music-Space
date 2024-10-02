@@ -1,13 +1,19 @@
-# MUSIC SPACE
+# MUSIC SPACE WEB APPLICATION
 > I. Project Description
+
 Music Space is a web application designed for music enthusiasts to explore, organize, and engage with music content. It provides features such as creating and updating albums, searching for lyrics, posting reviews, and discovering new artists and albums.
 
-II. Features
-    > User authentication: Allows users to register and log in to their accounts.
-    > Album management: Users can create, update, and delete albums, as well as add or remove tracks.
-    > Lyrics search: Users can search for song lyrics.
-    > Reviews: Users can post reviews on albums.
-    > Artist features: Highlights artists of the month and showcases a preview of their work.
+> II. Features
+
+    User authentication: Allows users to register and log in to their accounts.
+    
+    Album management: Users can create, update, and delete albums, as well as add or remove tracks.
+    
+    Lyrics search: Users can search for song lyrics.
+    
+    Reviews: Users can post reviews on albums.
+    
+    Artist features: Highlights artists of the month and showcases a preview of their work.
 
 III. Technologies Used
     > Frontend: HTML, CSS, JavaScript, Bootstrap
