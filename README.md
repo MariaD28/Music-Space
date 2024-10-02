@@ -1,7 +1,7 @@
 # MUSIC SPACE WEB APPLICATION
 > I. Project Description
 
-Music Space is a web application designed for music enthusiasts to explore, organize, and engage with music content. It provides features such as creating and updating albums, searching for lyrics, posting reviews, and discovering new artists and albums.
+Music Space is our fifth school web application project designed for music enthusiasts to explore, organize, and engage with music content. It provides features such as creating and updating albums, searching for lyrics, posting reviews, and discovering new artists and albums.
 
 > II. Features
 
