@@ -1,7 +1,5 @@
-MUSIC SPACE
-
-
-I. Project Description
+# MUSIC SPACE
+> I. Project Description
 Music Space is a web application designed for music enthusiasts to explore, organize, and engage with music content. It provides features such as creating and updating albums, searching for lyrics, posting reviews, and discovering new artists and albums.
 
 II. Features
@@ -19,7 +17,6 @@ III. Technologies Used
     > Additional Libraries: EJS (Embedded JavaScript templates)
 
 III. Setup and Installation
-    * (Soon) Clone the repository: git clone https://github.com/yourusername/music-space.git
     > Navigate to the project directory: cd music-space
     > Install dependencies: npm install
     > Set up MongoDB database and configure connection.
