@@ -71,19 +71,15 @@ Music Space is a web application designed for music enthusiasts to explore, orga
     
     GET /musicspace/albums/search: Searches for albums or lyrics.
 
-> VI. Screenshots
-
-Included screenshots of the application's interface and key features (in another file [PDF]).
-
-> VII. Contributing
+> VI. Contributing
 
 Contributions are welcome! Feel free to submit bug reports, feature requests, or pull requests.
 
-> VIII. License
+> VII. License
 
 This project is licensed under the MIT License.
 
-> IX. Acknowledgements
+> VIII. Acknowledgements
 
 Special thanks to our wonderful teachers in developing this project; Sir Ehsan and Sir Ivan, thank you for your guidance and patience with us!
 Thanks to OpenAI for providing the ChatGPT model used to generate this README. Special thanks to the developers of the libraries and frameworks used in this project.
