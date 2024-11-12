@@ -1,0 +1,117 @@
+<% layout('layouts/boilerplate') %>
+<link rel="stylesheet" href="/stylesheets/stars.css">
+<div class="row mt-3">
+  <div class="col-6">
+    <div class="card mb-3">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% album.images.forEach((img, i) => { %>
+            <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+              <img src="<%= img.url %>" class="d-block w-100" alt="Album image <%= i + 1 %>">
+            </div>
+          <% }) %>
+        </div>
+        <!-- Carousel controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="card-body-show">
+        <h5 class="card-title-show"><%= album.name %></h5>
+        <p class="card-text-description"><%= album.description %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item-artist"><b><%= album.artist %></b></li>
+        <li class="list-group-item">
+          <div class="genre-year-price"><i><%= album.genre %></i></div>
+          <div class="genre-year-price"><i><%= album.year %></i></div>
+          <div class="genre-year-price"><i>$<%= album.price %> AU monthly subscription</i></div>
+        </li>
+        <h5 class="track-name">TRACKS</h5>
+        <ol class="track-list mb-3">
+          <% for(let track of album.tracks) { %>
+            <li class="track-item"><%= track %></li>
+          <% } %>
+        </ol>
+      </ul>
+      <div class="card-body-show">
+        <% if(currentUser && album.author && album.author.equals(currentUser._id)) { %>
+          <div class="button-container">
+            <a href="/musicspace/albums/<%= album._id %>/edit" class="card-link btn btn-info">Edit</a>
+            <form action="/musicspace/albums/<%= album._id %>?_method=DELETE" method="POST" class="d-inline">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+            <a href="/musicspace/albums" class="btn btn-primary all-music">All Music</a> <!-- New All Music button -->
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <% if(currentUser) { %>
+      <h2>Leave a review</h2>
+      <form action="/musicspace/albums/<%= album._id %>/reviews" method="POST" class="mb-3 validated-form" novalidate>
+        <div class="mb-3">
+          <label for="rating" class="form-label">Rating</label>
+          <div id="heart-rating" class="heart-rating">
+            <% for(let i = 1; i <= 5; i++) { %>
+              <i class="fas fa-heart <%= i <= 3 ? 'checked' : '' %>" data-value="<%= i %>"></i>
+            <% } %>
+          </div>
+          <input type="hidden" name="review[rating]" id="rating" value="3">
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Review</label>
+          <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3" required></textarea>
+          <div class="valid-feedback">
+            Good to go!
+          </div>
+        </div>
+        <button class="btn btn-success">Submit</button>
+      </form>
+    <% } %>
+    <% for(let review of album.reviews) { %>
+      <div class="review-card card mb-3">
+        <div class="card-body-show-review">
+          <h6 class="card-subtitle mb-2 text-body-secondary">By: <%= review.author.username %></h6>
+          <div class="heart-rating">
+            <% for(let i = 1; i <= 5; i++) { %>
+              <i class="fas fa-heart <%= i <= review.rating ? 'checked' : '' %>"></i>
+            <% } %>
+          </div>
+          <p class="p-review">Review: <%= review.body %></p>
+        </div>
+        <% if(currentUser && review.author.equals(currentUser._id)) { %>
+          <form action="/musicspace/albums/<%= album._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-sm btn-danger btn-delete-review">Delete</button>
+          </form>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hearts = document.querySelectorAll('#heart-rating .fa-heart');
+    const ratingInput = document.getElementById('rating');
+    hearts.forEach(heart => {
+      heart.addEventListener('click', () => {
+        const rating = heart.getAttribute('data-value');
+        ratingInput.value = rating;
+        hearts.forEach((h, index) => {
+          if (index < rating) {
+            h.classList.add('checked');
+          } else {
+            h.classList.remove('checked');
+          }
+        });
+      });
+    });
+  });
+</script>

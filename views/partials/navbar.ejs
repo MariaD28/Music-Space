@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/musicspace/home">
+      <video src="/images/Logo2.mp4" autoplay loop muted class="logo"></video>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="/musicspace/home">Home</a>
+        <a class="nav-link" href="/musicspace/albums">Albums</a>
+        <a class="nav-link" href="/musicspace/albums/new">New Album</a>
+      </div>
+      
+      <!-- Combined Search Bar -->
+      <form class="d-flex ms-auto" action="/musicspace/albums/search" method="GET">
+        <input class="form-control me-2 search-bar" type="search" placeholder="Type here..." aria-label="Search" name="q" required>
+        <select class="form-select me-2" name="source">
+          <option value="genius" class="search-option">Lyrics</option>
+          <option value="local" class="search-option">Albums</option>
+        </select>
+        <button class="btn btn-outline-success search-btn" type="submit">Search</button>
+      </form>
+
+      <!-- User Authentication Dropdown -->
+      <div class="navbar-nav">
+        <% if (!currentUser) { %>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/musicspace/register">Register</a></li>
+              <li><a class="dropdown-item" href="/musicspace/login">Login</a></li>
+            </ul>
+          </div>
+        <% } else { %>
+          <a class="nav-link" href="/logout">Log out</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

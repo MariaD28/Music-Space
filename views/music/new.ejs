@@ -1,0 +1,119 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-wrapper">
+<div class="form-container">
+    <h1 class="h1-new">New Album</h1>
+    <form action="/musicspace/albums/" method="POST" class="validated-form" novalidate enctype="multipart/form-data">
+        <div class="form-content">
+            <div class="mb-3">
+                <label form="name" class="form-label-new">Album Name</label>
+                <input type="text" id="name" class="form-control input-field new" name="album[name]" required>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="image" class="form-label-new">Add More Image(s)</label>
+                <input type="file" id="image" class="form-control input-field" name="image" multiple>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+        
+            <div class="mb-3">
+                <label form="price" class="price-label">Subscription Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control price" placeholder="0.00" required name="album[price]" aria-label="album-price" aria-describedby="album-price">
+                    <div class="valid-feedback">
+                        Good to go!
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label-new" for="description">Description</label>
+                <textarea class="form-control input-field description" type="text" name="album[description]" id="description" required></textarea>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label form="artist" class="form-label-new">Artist</label>
+                <textarea type="text" id="artist" class="form-control input-field artist" name="album[artist]" required></textarea>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label form="year" class="form-label-new">Year</label>
+                <input type="number" id="year" class="form-control input-field" name="album[year]" required placeholder="YYYY" aria-label="album-year" aria-describedby="album-year">
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+
+            <!-- Radio buttons for genre -->
+          <div class="mb-3 radio">
+            <label class="form-label-new">Genre</label><br>
+            <input type="radio" id="rock" name="album[genre]" value="Rock" required>
+            <label for="rock" class="genre-label">Rock</label><br>
+            <input type="radio" id="pop" name="album[genre]" value="Pop" required>
+            <label for="pop" class="genre-label">Pop</label><br>
+            <input type="radio" id="soul" name="album[genre]" value="Soul" required>
+            <label for="soul" class="genre-label">Soul</label><br>
+            <input type="radio" id="r&b" name="album[genre]" value="R&B" required>
+            <label for="r&b" class="genre-label">R&B</label><br>
+            <input type="radio" id="classical" name="album[genre]" value="Classical" required>
+            <label for="classical" class="genre-label">Classical</label>
+            <div class="invalid-feedback">Please select a genre</div>
+        </div>
+
+            <!-- Tracklist Section -->
+            <div class="mb-3">
+                <label class="form-label-new tracklist">Tracklist</label>
+                <div id="tracklist">
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control tracklist" name="album[tracks][]" placeholder="Track 1" required>
+                        <button type="button" class="btn btn-danger remove-track">Remove</button>
+                    </div>
+                </div>
+                <button type="button" id="add-track" class="btn btn-primary">Add Track</button>
+                <div class="invalid-feedback">Please add at least one track</div>
+            </div>
+
+            <div class="button-wrapper">
+                <button class="btn btn-success add">Add Album</button>
+                <a href="/musicspace/albums" class="all-music-button">All Music</a>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tracklist = document.getElementById('tracklist');
+        const addTrackButton = document.getElementById('add-track');
+
+        addTrackButton.addEventListener('click', function() {
+            const trackCount = tracklist.querySelectorAll('.input-group').length + 1;
+            const newTrack = document.createElement('div');
+            newTrack.className = 'input-group mb-2';
+            newTrack.innerHTML = `
+                <input type="text" class="form-control" name="album[tracks][]" placeholder="Track ${trackCount}" required>
+                <button type="button" class="btn btn-danger remove-track">Remove</button>
+            `;
+            tracklist.appendChild(newTrack);
+        });
+
+        tracklist.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-track')) {
+                const track = event.target.closest('.input-group');
+                tracklist.removeChild(track);
+            }
+        });
+    });
+</script>

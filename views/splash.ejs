@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/stylesheets/styles.css">
+<body class="splash-body">
+    <div class="collage">
+        <!-- Add your images here -->
+        <div class="image-container">
+            <img src="images/dualipa.jpg" class="image" alt="Artist 1 Dua Lipa">
+            <img src="images/madisonbeer.jpg" class="image hidden" alt="Artist 2 Madison Beer">
+        </div>
+        <!-- Repeat the above block for each image pair -->
+        <div class="image-container">
+            <img src="images/arianagrande.jpg" class="image" alt="Artist 1 Ariana Grande">
+            <img src="images/taylorswift.jpg" class="image hidden" alt="Artist 2 Taylor Swift">
+        </div>
+        <div class="image-container">
+            <img src="images/coldplay.jpg" class="image" alt="Artist 1 Coldplay">
+            <img src="images/edsheeran.jpg" class="image hidden" alt="Artist 2 Ed Sheeran">
+        </div>
+        <div class="image-container">
+            <img src="images/brunomars.jpg" class="image" alt="Artist 1 Bruno Mars">
+            <img src="images/zayn.jpg" class="image hidden" alt="Artist 2 Zayn Malik">
+        </div>
+        <div class="image-container">
+            <img src="images/hozier.jpg" class="image" alt="Artist 1 Hozier Andrew Hozier-Byrne">
+            <img src="images/stephensanchez.jpg" class="image hidden" alt="Artist 2 Stephen Sanchez">
+        </div>
+        <div class="image-container">
+            <img src="images/frankocean.jpg" class="image" alt="Artist 1 Frank Ocean">
+            <img src="images/jonasbrothers.jpg" class="image hidden" alt="Artist 2 Jonas Brothers">
+        </div>
+        <div class="image-container">
+            <img src="images/mileycyrus.jpg" class="image" alt="Artist 1 Miley Cyrus">
+            <img src="images/ayrastarr.jpg" class="image hidden" alt="Artist 2 Ayra Starr">
+        </div>
+        <div class="image-container">
+            <img src="images/rihanna.jpg" class="image" alt="Artist 1 Rihanna">
+            <img src="images/ladygaga.jpg" class="image hidden" alt="Artist 2 Lady Gaga">
+        </div>
+        <div class="image-container">
+            <img src="images/adele.jpg" class="image" alt="Artist 1 Adele">
+            <img src="images/selenagomez.jpg" class="image hidden" alt="Artist 2 Selena Gomez">
+        </div>
+        <div class="image-container">
+            <img src="images/billieeilish.jpg" class="image" alt="Artist 1 Billie Eilish">
+            <img src="images/sabrinacarpenter.jpg" class="image hidden" alt="Artist 2 Sabrina Carpenter">
+        </div>
+    </div>
+     <!-- Button to navigate to the home page -->
+    <button class="home-button" onclick="window.location.href='/musicspace/home'">
+        <span>Discover Music Space</span>
+    </button>
+     <!-- JavaScript to switch images periodically -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const containers = document.querySelectorAll(".image-container");
+
+            containers.forEach(container => {
+                const images = container.querySelectorAll(".image");
+                let currentImageIndex = 0;
+
+                setInterval(() => {
+                    images[currentImageIndex].classList.add("hidden");
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    images[currentImageIndex].classList.remove("hidden");
+                }, 3500); // Change the image every 3.5 seconds
+             });
+        });
+    </script>
+
+</body>
+</html>

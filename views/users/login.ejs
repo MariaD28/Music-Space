@@ -1,0 +1,27 @@
+<% layout('layouts/boilerplate') %> <!-- Set the layout for this template -->
+<div class="card-login">
+  <h1 class="h1-login">Login</h1>
+    <!-- Login form -->
+    <form action="/musicspace/login" method="POST" class="validated-form" novalidate>
+    <!-- Username field -->
+    <div class="mb-3">
+      <label for="username" class="form-label-login">Username</label>
+      <input type="text" id="username" class="form-control input-field login" name="username" autofocus required>
+        <div class="valid-feedback">
+          Good to go!
+        </div>
+    </div>
+        <!-- Password field -->
+    <div class="mb-3">
+      <label for="password" class="form-label-login">Password</label>
+      <input type="password" id="password" class="form-control input-field login" name="password" required>
+        <div class="valid-feedback">
+          Good to go!
+        </div>
+    </div>
+        <!-- Login button -->
+    <div class="button-wrapper">
+      <button class="btn btn-success login">Log in</button>
+    </div>
+  </form>
+</div>

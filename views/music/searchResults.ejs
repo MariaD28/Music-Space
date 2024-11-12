@@ -1,0 +1,57 @@
+<% layout('layouts/boilerplate') %>
+<div class="row-searchresults mt-3">
+    <div class="col-12">
+        <h2>Search Results for "<%= searchTerm %>"</h2>
+
+        <% if (albums.length > 0) { %>
+            <div class="row">
+                <% albums.forEach(album => { %>
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-search">
+                            <img src="<%= album.images[0].url %>" class="card-img-top" alt="...">
+                            <div class="card-body-search">
+                                <h5 class="card-title"><%= album.name%></h5>
+                                <p class="card-text"><%= album.description %></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><%= album.artist %></li>
+                                <li class="list-group-item text-body-secondary"><%= album.year %></li>
+                                <li class="list-group-item">$<%= album.price %>AU monthly subscription</li>
+                            </ul>
+                            <div class="card-body-search">
+                                <a href="/musicspace/albums/<%= album._id %>" class="card-link btn btn-primary btn-spacing">View</a>
+                                <a href="/musicspace/albums/<%= album._id %>/edit" class="card-link btn btn-info btn-spacing">Edit</a>
+                                <form action="/musicspace/albums/<%= album._id %>?_method=DELETE" method="POST" class="d-inline btn-spacing">
+                                    <button class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <% if (searchResults && searchResults.length > 0) { %>
+            <br>
+            <h3 class="h3-lyrics">Lyrics</h3>
+            <div class="row">
+                <% searchResults.forEach(result => { %>
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-lyrics">
+                            <img src="<%= result.song_art_image_url %>" class="card-img-top" alt="Album Art">
+                            <div class="card-body-lyrics">
+                                <h5 class="card-title"><%= result.full_title %></h5>
+                                <p class="card-text">Artist: <%= result.artist_names %></p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><a href="<%= result.url %>" class="lyrics-link">Unlock the lyrics here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else if (!albums || albums.length === 0) { %>
+            <p class="no-res-found">No results found</p>
+        <% } %>
+    </div>
+</div>

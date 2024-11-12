@@ -1,0 +1,803 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('/images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Centering the form-wrapper */
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.6); /* Light background with some transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 650px; /* Set a maximum width */
+    width: 100%; /* Allow the width to adjust based on screen size */
+}
+
+
+.form-control.price {
+    border-radius: 0 5px 5px 0 !important;
+    /* border: 1.8px solid #4547FF; */
+    border-color: #4547FF;
+    width: 267px !important;
+    height: 45px !important;
+}
+
+.form-control.tracklist {
+    width: 219px !important;
+    height: 45px !important;
+}
+
+.form-control.artist {
+    height: 50px;
+}
+
+.form-label-edit.tracklist {
+    padding-top: 15px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1.5px solid #4547FF;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-control {
+    margin-top: 0 !important;
+}
+
+textarea {
+    width: 100%; /* Full width within their container */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1.5px solid #4547FF;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
+h1 {
+    padding-top: 55px;
+    text-align: center;
+    color: #dbdbdb;
+    font-size: 32px;
+}
+
+h2 {
+    color: #dbdbdb;
+}
+
+.h3-lyrics {
+    color: #4547FF;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.track-name{
+    padding-top: 13px;
+    color: #4547FF;
+    text-align: center;
+}
+
+.form-label {
+    color: #dbdbdb;
+}
+
+.add-album {
+    color: #4547FF;
+}
+
+
+.container-fluid {
+    height: 100px;
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+}
+
+.logo {
+    width: 150px; 
+    height: 100px; /* or auto to maintain aspect ratio */
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.75); 
+}
+
+.navbar .nav-link {
+    color: #dbdbdb !important;
+    transition: color 0.3s ease;
+}
+
+.header-with-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.add-album-button {
+    background-color: #4547FF; /* Theme color */
+    border-color: #4547FF; /* Theme color */
+    color: #dbdbdb !important;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none; /* Remove underline */
+    margin-top: 50px;
+}
+
+.add-album-button:hover {
+    background: linear-gradient(135deg, #3638d4 0%, #7278d4 100%);
+    color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Consistency for primary buttons */
+.btn-primary {
+    background-color: #3638d4; 
+    border-color: #3638d4; 
+    height: 42px;
+    font-weight: 500;
+    
+}
+
+.btn-primary:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.btn-primary.index {
+    background-color: #4547FF;
+    border-color: #4547FF;
+    height: 42px;
+    width: 200px;
+    font-weight: 500;
+    
+}
+
+.btn-primary.index:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.all-music-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.all-music-button:hover {
+    background-color: #0056b3;
+}
+
+.navbar .nav-link.active {
+    color: #4547FF !important;
+}
+
+.btn-outline-success {
+    border-color: #4547FF;
+    color: #4547FF;
+}
+
+.btn-outline-success:hover {
+    color: black; /* Text color */
+    background-color: #4547FF; /* Purple background color */
+    border-color: #4547FF; /* Border color */
+}
+
+
+@keyframes beat {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(69, 71, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(69, 71, 255, 1);
+    }
+}
+
+.search-bar {
+    border-color: #4547FF;
+    animation: beat 3s infinite;
+    width: 250px; /* Adjust the width as needed */
+}
+
+.form-select.me-2 {
+    width: auto; /* Or set a specific width */
+}
+
+/* <---- CARD STYLES! ----> */
+
+.price-label {
+    color: black;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+}
+
+.input-field.register {
+    width: 355px !important;
+}
+
+.input-field.login {
+    width: 355px !important;
+}
+
+.col-6.offset-3 {
+    margin: 0 auto; /* Center the column with the form */
+}
+
+
+.card-register, .card-login {
+    background: rgba(255, 255, 255, 0.4); /* Light background with some transparency */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 50px; /* Add some space from the top */
+    margin-bottom: 63px;
+}
+
+.h1-register, .h1-login, .h1-new, .h1-edit {
+    color: black;
+    padding-bottom: 30px;
+}
+
+.input-field {
+    /* width: 100%; Make input fields take the full width of their container */
+    padding: 10px; /* Add some padding for better readability */
+    margin: 10px 0; /* Add some margin for spacing between inputs */
+    border: 1.3px solid #4547FF; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    width: 400px !important; /* Fixed width for input fields */
+}
+
+/* .input-group-text {
+    padding: 10px 15px; /* Adjust the padding to match the input field's height */
+/* }  */
+
+/* .remove-track {
+    padding: 10px 15px; /* Adjust the padding to match the input field's height */
+/* } */
+
+
+.form-label-register, .form-label-login, .form-label-new, .form-label-edit {
+    color: black;
+}
+
+.button-wrapper {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center the button */
+    gap: 10px; /* Add some space between the buttons */
+}
+
+
+
+.btn-success.register, .btn-success.login, .all-music-button, .btn.add-album-button {
+    background-color: #3638d4 ; /* Slightly darker shade for hover effect */
+    border-color: #3638d4; /* Match hover color */
+    color: black;
+    border: none;
+    text-align: center;
+    font-size: 1rem; 
+    font-weight: 500; /* Medium font weight */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 10px 65px;
+    text-decoration: none;
+}
+
+.btn-success.add {
+    height: 43px;
+    background-color: #3638d4 ; /* Slightly darker shade for hover effect */
+    border-color: #3638d4; /* Match hover color */
+    color: black;
+    border: none;
+    text-align: center;
+    font-size: 1rem; 
+    font-weight: 500; /* Medium font weight */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 10px 65px;
+    margin-top: 20px; /* Adjust this value to move the button down */
+}
+
+.btn-success.update, .back-to-album-button {
+    height: 43px;
+    background-color: #3638d4 ; /* Slightly darker shade for hover effect */
+    border-color: #3638d4; /* Match hover color */
+    color: black;
+    border: none;
+    text-align: center;
+    font-size: 1rem; 
+    font-weight: 500; /* Medium font weight */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    width: 400px;
+    margin-top: 20px; /* Adjust this value to move the button down */
+    text-decoration: none;
+}
+
+.btn-success.register:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.btn-success.login:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.btn-success.add:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.btn-success.update:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.all-music-button:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.back-to-album-button:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+.btn.add-album-button:hover {
+    background-color: #2e30b0; /* Darker shade for hover effect */
+    border-color: #2e30b0; /* Match hover color */
+}
+
+
+
+
+
+
+.card {
+    border-color: #4547FF;
+    border-width: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value for transparency */
+    margin: 0 !important;
+    padding: 0 !important;
+
+}
+
+.col-md-4, .col-md-8 {
+    padding: 0 !important;
+}
+
+.row.g-0 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.card-body {
+    height: 298px; /* Set a fixed height */
+    width: 100%; /* Set a fixed width */
+    /* padding: 10px; */
+    overflow: hidden; /* Hide overflow text */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content within the card body */
+}
+
+.card.card-lyrics {
+    margin-right: 15px !important;
+}
+
+.card.card-search {
+    margin-right: 15px !important;
+}
+
+.card-body-lyrics {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.card-body-search {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+}
+
+.btn-spacing {
+    margin-right: 1px; /* Set the desired spacing between buttons */
+}
+
+.btn-spacing:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+
+.card-body-show {
+    /* height: 298px; */
+    width: 100%; /* Set a fixed width */
+    overflow: hidden; /* Hide overflow text */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content within the card body */
+}
+
+
+.review-card {
+    margin-bottom: 15px !important; /* Adjust the value to control the gap size */
+}
+
+.card-body-show-review {
+    padding-left: 10px;
+    padding-top: 10px;
+    width: 100%; /* Set a fixed width */
+    overflow: hidden; /* Hide overflow text */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out content within the card body */
+}
+
+.p-review {
+    padding-top: 20px;
+}
+
+
+.card-text {
+    /* flex-grow: 1; */
+    overflow: hidden; /* Hide overflow text */
+    white-space: wrap;
+}
+
+
+.list-group-item {
+    padding-top: 2px solid #4547FF; /* Top border with desired color */
+    border-color: #4547FF; /* Same border color as main cards */
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+}
+
+.fa-heart {
+    color: #dbdbdb;
+    cursor: pointer;
+}
+.fa-heart.checked {
+    color: #4547FF;
+}
+
+.track-list {
+    list-style: decimal inside;
+    padding: 0;
+    margin: 0;
+}
+.track-item {
+    margin: 5px 0;
+    padding: 10px;
+    border-bottom: 1px solid #4547FF;
+}
+.track-item:last-child {
+    border-bottom: none;
+}
+
+.card-title-show {
+    text-align: center;
+    color: #4547FF;
+    margin-top: 15px;
+}
+
+.card-text-description {
+    color: #333333;
+    text-align: center;
+}
+
+.genre-year-price {
+    background-color: #4547FF; /* Replace with your primary theme color */
+    color: #ffffff; /* Replace with your text color */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px; /* Space between button and text */
+    display: inline-block; /* Ensures the button respects border radius */
+}    
+
+.genre-label {
+    color: black;
+}
+
+
+.list-group-item-artist {
+    /* margin-left: 1rem; */
+    list-style: none;
+    border-bottom: 1px solid #4547FF;
+    text-align: center;
+    padding: 7px 7px;
+}
+
+.lyrics-link {
+    color: #4547FF;
+    font-weight: bold;
+}
+
+
+
+@keyframes fadeInSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.welcome-music-space {
+    color:#4547FF;
+    text-align: center;
+    font-size: 35px;
+    opacity: 0; /* Start with the text hidden */
+    animation: fadeInSlideUp 2s ease-out forwards; /* 2s duration, ease-out timing function */
+    animation-delay: 0.5s; /* Delay to start the animation */
+}
+
+
+
+
+.about-music-space {
+    font-size: 18px;
+    color:#dbdbdb;
+    text-align: center;
+}
+
+.no-res-found {
+    color:#dbdbdb;
+}
+
+.form-label.tracklist {
+    padding-top: 15px;
+}
+
+.tracklist {
+    border-color: #4547FF;
+}
+.splash-body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh; /* Ensure the body takes the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    flex-direction: column;
+}
+
+.collage {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 6px;
+    width: 100%;
+    height: 100%; /* Ensure the collage takes the full height */
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensure the images don't overflow their containers */
+    display: inline-block; /* Adjust based on your layout needs */
+}
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 2s ease-in-out;
+    opacity: 0.33; /* Set the opacity of the images */
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.image:not(.hidden) {
+    opacity: 0.45;
+}
+
+/* Your existing CSS */
+
+.home-button {
+    background-color: rgba(69, 71, 255, 0.6); /* Increase transparency */
+    color: #dbdbdb;
+    border: none;
+    padding: 25px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    position: absolute; /* Position button absolutely */
+    margin-top: 20px; /* Adjust margin to separate button from images if needed */
+    overflow: hidden;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Include background color in transition */
+    white-space: nowrap; /* Ensure text stays on one line */
+    overflow: hidden; /* Prevents text overflow */
+    top: 45%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center alignment correction */
+}
+
+.home-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle at center, transparent, rgba(69, 71, 255, 0.6), #000); /* Adjust transparency */
+    transition: all 0.6s ease;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translate(-50%, -50%) scale(0);
+    background: url('/images/RocketLogo-1.png') no-repeat center center;
+    background-size: contain; /* Ensure the image covers the area */
+    z-index: 1; /* Ensure the icon is above the text */
+}
+
+.home-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.home-button:hover {
+    color: #FFFFFF;
+    background-color: rgba(69, 71, 255, 0.4); /* More transparency on hover */
+}
+
+.home-button span {
+    position: relative;
+    z-index: 1;
+}
+
+
+.footer {
+    color: #dbdbdb;
+    background-color:rgba(0, 0, 0, 0.75); 
+    margin-top: 35px !important;
+}
+
+.quick-link {
+    color: #4547FF;
+    text-decoration: none;
+}
+
+.fa-facebook, .fa-twitter, .fa-instagram {
+    color: #4547FF;
+    font-size: 20px;
+}
+
+.partner-logo {
+    max-height: 50px; /* Adjust as needed */
+    display: flex;
+    margin-bottom: 5px; /* Adjust as needed */
+    /* max-width: 200px; Adjust as needed */
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start; /* Align items at the start */
+    gap: 5px; /* Use gap property for spacing between flex items */
+    width: auto; /* Adjust as needed */
+}
+
+.button-container .btn {
+    margin: 0; /* Reset margins */
+}
+
+.button-container .btn-info {
+    flex: 0 0 80px; /* Set specific width for Edit button */
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+.button-container .btn-danger {
+    flex: 0 0 80px; /* Ensure Delete button has the same width */
+    height: 40px;
+}
+
+.button-container .btn-primary.all-music {
+    height: 40px;
+}
+
+
+.btn-delete-review {
+    position: relative;
+    left: 10px;
+    top: -10px;
+}
+
+.p-footer {
+    margin-bottom: 6px;
+}
+
+/* Ensure the row has no gutter */
+.row.g-0 {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.album-image-container {
+    height: 230px;
+    /* width: 400px; / This made the extra padding / why the .gif file didnt fit in/covered the whole container */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Hide any overflowing parts of the image */
+}
+
+.fixed-size-image {
+    width: 100% !important; /* Ensure the image covers the container fully */
+    height: 100% !important; /* Ensure the image covers the container fully */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+.card-title {
+    color:#000;
+}
+
+/* .card, .card-body, .album-image-container, .fixed-size-image {
+    border: 1px solid red !important; /* Temporary debugging borders */
+/* } */

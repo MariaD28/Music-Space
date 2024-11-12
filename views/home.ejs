@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Space</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link href="/stylesheets/stylesHome.css" rel="stylesheet">
+</head>
+<body>
+    <div id="musicCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <ol class="carousel-indicators">
+            <li data-target="#musicCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#musicCarousel" data-slide-to="1"></li>
+            <li data-target="#musicCarousel" data-slide-to="2"></li>
+            <li data-target="#musicCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('/images/bg1.jpg');">
+                <div class="carousel-caption-first d-none d-md-block">
+                    <!-- Website Logo -->
+                    <div class="custom-carousel-logo">
+                        <img src="/images/logo-transparent-gif.gif" alt="Website Logo">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="custom-carousel-content">
+                        <h5 class="h5-about-the-app">About the App</h5>
+                        <i><p class="p-about-the-app">Discover the features of our music space app</p></i>
+                    </div>
+                    <!-- Caption -->
+                    <div class="musicspace-caption">
+                        <p>Music Space allows you to curate your own music library, create and update albums, and add or remove tracks.
+                        <p class="p-musicspace-caption"> Search for lyrics, post reviews, and engage with the collections of other users.
+                        <br> Whether you're organizing your favorite tunes or discovering new ones, Music Space offers a personalized and interactive experience for all music enthusiasts!</p>
+                    </div>
+                     <!-- Buttons for the first slide -->
+                    <div class="buttons-container">
+                        <a href="http://localhost:3000/musicspace/register" class="home-button">Register Here</a>
+                        <a href="http://localhost:3000/musicspace/albums" class="home-button">Explore Music</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="carousel-item" style="background-image: url('/images/artistofthemonth1.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="otherslide-title">Artists Rockin' This Month</h5>
+                    <p>Check out Sabrina Carpenter as she shines as the top artist of the month.</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('/images/albumofthemonth.jpg');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="otherslide-title">Record-Breaking Albums</h5>
+                    <p>The Weeknd's <i>After Hours</i> album is breaking records this month.</p>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('/images/lyrics.gif');">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 class="otherslide-title">Song Lyrics</h5>
+                    <p>Get inspired by our song lyrics.</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#musicCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#musicCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $('#musicCarousel').carousel({
+            interval: 5000
+        });
+
+        $('.carousel').carousel({
+            pause: "hover"
+        });
+    </script>
+</body>
+</html>

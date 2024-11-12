@@ -1,0 +1,128 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-wrapper">
+<div class="form-container">
+    <h1 class="h1-edit">Edit The Album</h1>
+    <div class="col-6 offset-3">
+        <form action="/musicspace/albums/<%= album._id %>?_method=PUT" method="POST" class="validated-form" enctype="multipart/form-data"  novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label-edit">Album Name</label>
+                <input type="text" id="name" class="form-control input-field edit" name="album[name]" value="<%= album.name %>" required>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label-edit" for="image">Add More Image(s)</label>
+                <input class="form-control input-field" type="file" name="image" id="image" multiple>
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+            </div>
+            <div class="mb-3">
+                <% album.images.forEach(function(img, i) { %>
+                    <img src="<%= img.thumbnail %>" alt="" class="img-thumbnail">
+                    <div class="form-check-inline">
+                        <input class="form-check" id="image-<%= i %>" type="checkbox" name="deleteImages[]" value="<%= img.filename %>">
+                    </div>
+                    <label for="image-<%= i %>">Delete?</label>
+                <% }) %>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label-edit">Subscription Price</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control price" value="<%= album.price %>" placeholder="0.00" required name="album[price]" aria-label="album-price" aria-describedby="album-price">
+                    <div class="valid-feedback">
+                        Good to go!
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label-edit">Description</label>
+                <textarea type="text" id="description" class="form-control input-field description" name="album[description]" required><%= album.description %></textarea>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="artist" class="-edit">Artist</label>
+                <textarea type="text" id="artist" class="form-control input-field artist" name="album[artist]" required><%= album.artist %></textarea>
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="year" class="form-label-edit">Year</label>
+                <input type="number" id="year" class="form-control input-field" name="album[year]" required placeholder="YYYY" aria-label="album-year" aria-describedby="album-year" value="<%= album.year %>">
+                <div class="valid-feedback">
+                    Good to go!
+                </div>
+            </div>
+            <!-- Radio buttons for genre -->
+            <div class="mb-3-radio">
+                <label class="form-label-edit">Genre</label><br>
+                <input type="radio" id="rock" name="album[genre]" value="Rock" <%= album.genre === 'Rock' ? 'checked' : '' %> required>
+                <label for="rock">Rock</label><br>
+                <input type="radio" id="pop" name="album[genre]" value="Pop" <%= album.genre === 'Pop' ? 'checked' : '' %> required>
+                <label for="pop">Pop</label><br>
+                <input type="radio" id="soul" name="album[genre]" value="Soul" <%= album.genre === 'Soul' ? 'checked' : '' %> required>
+                <label for="soul">Soul</label><br>
+                <input type="radio" id="r&b" name="album[genre]" value="R&B" <%= album.genre === 'R&B' ? 'checked' : '' %> required>
+                <label for="r&b">R&B</label><br>
+                <input type="radio" id="classical" name="album[genre]" value="Classical" <%= album.genre === 'Classical' ? 'checked' : '' %> required>
+                <label for="classical">Classical</label><br>
+                <div class="invalid-feedback">Please select a genre</div>
+            </div>
+            <div class="mb-3">
+                <!-- New field for editing tracklist -->
+                <div class="mb-3">
+                    <label class="form-label-edit tracklist">Tracklist</label>
+                    <div id="tracklist">
+                        <% album.tracks.forEach((track, index) => { %>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control tracklist" name="album[tracks][]" value="<%= track %>" required>
+                                <button type="button" class="btn btn-danger remove-track">Remove</button>
+                            </div>
+                        <% }); %>
+                    </div>
+                    <button type="button" class="btn btn-primary" id="add-track">Add Track</button>
+                </div>
+            </div>
+            <br>
+            <div class="button-wrapper">
+                <button class="btn btn-success update">Update Album</button>
+                <a href="/musicspace/albums/<%= album._id %>" class="back-to-album-button">Back to Album</a>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+ 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tracklist = document.getElementById('tracklist');
+        const addTrackButton = document.getElementById('add-track');
+ 
+        addTrackButton.addEventListener('click', () => {
+            const newTrackInput = document.createElement('div');
+            newTrackInput.classList.add('input-group', 'mb-2');
+            newTrackInput.innerHTML = `
+                <input type="text" class="form-control" name="album[tracks][]" placeholder="Track" required>
+                <button type="button" class="btn btn-danger remove-track">Remove</button>
+            `;
+            tracklist.appendChild(newTrackInput);
+ 
+            const removeTrackButton = newTrackInput.querySelector('.remove-track');
+            removeTrackButton.addEventListener('click', () => {
+                newTrackInput.remove();
+            });
+        });
+ 
+        document.querySelectorAll('.remove-track').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.closest('.input-group').remove();
+            });
+        });
+    });
+</script>

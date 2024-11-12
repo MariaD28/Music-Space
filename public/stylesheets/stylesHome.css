@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    position: relative;
+    height: 100vh;
+}
+
+.h5-about-the-app {
+    padding-top: 10px;
+    color: white;
+}
+
+.p-about-the-app {
+    color: white;
+}
+
+.musicspace-caption {
+    color: #dbdbdb;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.p-musicspace-caption {
+    padding-top: 5px;
+}
+
+.carousel-item {
+    height: 100vh;
+    background: no-repeat center center scroll;
+    background-size: cover;
+    position: relative;
+}
+
+.carousel-item.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-caption-first {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.carousel-caption,
+.custom-carousel-content,
+.musicspace-caption,
+.custom-carousel-logo {
+    text-align: center;
+}
+
+/* Override background color for slides 2, 3, and 4 */
+.carousel-item:nth-child(2) .carousel-caption,
+.carousel-item:nth-child(3) .carousel-caption,
+.carousel-item:nth-child(4) .carousel-caption {
+    background-color: rgba(90, 90, 90, 0.7);
+}
+
+.custom-carousel-logo img {
+    max-height: 200px;
+    margin-bottom: 20px;
+}
+
+.custom-carousel-content {
+    margin-bottom: 20px;
+}
+
+.musicspace-caption {
+    margin-bottom: 20px;
+}
+
+.home-button {
+    background-color: rgba(69, 71, 255, 0.6);
+    color: #dbdbdb;
+    border: none;
+    padding: 20px 30px; /* Maintain the same padding for both buttons */
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    margin: 0 10px; /* Add margin to create space between buttons */
+    position: relative;
+    overflow: hidden;
+    text-decoration: none !important; /* Remove underline from text */
+    z-index: 1;
+}
+
+.home-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle at center, transparent, rgba(69, 71, 255, 0.6), #000);
+    transition: all 0.6s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: -1; /* Ensure the pseudo-element is behind the button */
+}
+
+/* Modify hover effect for each button */
+.home-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.home-button:hover {
+    color: #ffffff;
+    background-color: rgba(69, 71, 255, 0.4);
+}
+
+.home-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+}
+
+.otherslide-title {
+    color: black;
+    /* color: #4547FF; */
+    /* color: transparent; */
+    /* font-weight: bold; */
+    text-shadow: 
+        -1px -1px 0 #4547FF,  
+        1px -1px 0 #4547FF,
+        -1px 1px 0 #4547FF,
+        1px 1px 0 #4547FF; /* Add black text shadow around each letter */
+}

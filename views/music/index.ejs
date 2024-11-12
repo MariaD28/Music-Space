@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate') %>
+<div class="container">
+    <div class="introduction">
+        <h2 class="welcome-music-space">Welcome to Music Space</h2>
+        <p class="about-music-space">
+            Dive into the world of music with Music Space and curate your personal musical journey
+        </p>
+    </div>
+
+    <div class="header-with-button">
+        <h1>All Albums</h1>
+        <a href="/musicspace/albums/new" class="btn add-album-button">Add Album</a>
+    </div>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% for(let album of albums) { %>
+            <div class="col">
+                <div class="card h-100">
+                    <% if (album.images && album.images.length > 0) { %>
+                        <div class="row g-0">
+                            <div class="col-md-4 album-image-container">
+                                <img src="<%= album.images[0].url %>" alt="" class="img-fluid fixed-size-image">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= album.name %></h5>
+                                    <p class="card-text"><%= album.description %></p>
+                                    <p class="card-text"><%= album.genre %></p>
+                                    <p class="card-text">
+                                        <small class="text-body-secondary"><%= album.year %></small>
+                                    </p>
+                                    <a href="/musicspace/albums/<%= album._id %>" class="btn btn-primary index">Explore</a>
+                                </div>
+                            </div>
+                        </div>
+                    <% } else { %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= album.name %></h5>
+                            <p class="card-text"><%= album.description %></p>
+                            <p class="card-text"><%= album.genre %></p>
+                            <p class="card-text">
+                                <small class="text-body-secondary"><%= album.year %></small>
+                            </p>
+                            <a href="/musicspace/albums/<%= album._id %>" class="btn btn-primary">Explore<%= album.name  %></a>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
