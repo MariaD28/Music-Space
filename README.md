@@ -82,4 +82,4 @@ This project is licensed under the MIT License.
 > VIII. Acknowledgements
 
 Special thanks to our wonderful teachers in developing this project; Sir Ehsan and Sir Ivan, thank you for your guidance and patience with us!
-Thanks to OpenAI for providing the ChatGPT model used to generate this README. Special thanks to the developers of the libraries and frameworks used in this project.
+Thanks to OpenAI for providing the ChatGPT model used to generate this README. Special thanks to the developers of the libraries and frameworks used in this project....
